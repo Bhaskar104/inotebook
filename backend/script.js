@@ -1,3 +1,12 @@
-const mongoose = require('mongoose')
+const connectToMongo = require('./db')
+const express  = require('express');
 
-mongoose.connect("mongodb://localhost:27017");
+connectToMongo();
+
+const app = express()
+
+app.get('/', (req, res) => {
+ res.send('hello world')
+})
+
+app.listen(3000);
